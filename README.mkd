@@ -1,0 +1,50 @@
+## currentline.vim
+
+A Vim plugin which highlights the current line by defining a new highlight group `CurrentLine`.
+
+Use cases:
+
+* Lost in the code; where's my cursor, where am I, hello
+* Mark pen; Highlight an interesting line while doing something else so you
+don't forget it
+
+Subsequent calls will toggle the highlight:
+
+* Remove the highlighting if called when the cursor is on an already
+  highlighted line
+* Add new highlighting if called when the cursor is on a
+  non-highlighted line
+
+### Installation
+
+Throw the plugin into your `$VIMRUNTIME/plugin` directory, i.e `~/.vim/plugin/`.
+
+### Configuration
+
+#### Mappings
+
+No mappings defined by default; play nice.
+
+Here's how you can add a mapping that will toggle like described above:
+
+```vim
+nnoremap <silent> <leader>hl :call HighlightCurrentLine('♥')<cr>
+```
+
+#### Colors
+
+These are the default colors, but you're expected to set it up to your own
+liking in your `vimrc`:
+
+```vim
+highlight CurrentLine
+  \ term=bolditalic
+  \ ctermbg=184 ctermfg=bg cterm=bolditalic
+  \ guibg=#1d7d70 guifg=bg gui=bold
+```
+
+### Screenshot
+
+![screenshot](./extra/screenshot.png?raw=true)
+
+In the screenshot above you can see that `Line 5` is highlighted with the `CurrentLine` highlight group.
